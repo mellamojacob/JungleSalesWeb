@@ -1,0 +1,16 @@
+{
+  "name": "jungle_sales",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jacob Virgin for Lumin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "iron-node": "3.0.10",
+    "mongoose": "4.5.7"
+  }
+}
