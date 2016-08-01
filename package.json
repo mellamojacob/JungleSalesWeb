@@ -9,6 +9,8 @@
   "author": "Jacob Virgin for Lumin",
   "license": "ISC",
   "dependencies": {
+    "async": "2.0.1",
+    "bluebird": "3.4.1",
     "body-parser": "1.15.2",
     "iron-node": "3.0.10",
     "mongoose": "4.5.7"
