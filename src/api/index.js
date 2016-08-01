@@ -86,24 +86,44 @@ router.post('/users', function(req, res) {
 
 router.put('/users/:user_name', function(req, res) {
 	var user_name = req.params.user_name;
-	var companyToAdd = req.body;
+	var companyName = req.body.companies;
 	User.findOne({name: user_name}, function(err, user){
 		if (err) return handleError(err);
-		User.findByIdAndUpdate(user._id, {$push: companyToAdd}, {new: true}, function(err, user) {
+		User.findByIdAndUpdate(user._id, {$push: {companies: companyName}}, {new: true}, function(err, user) {
 			if(err) {
-				return res.status(500).json({err: err.message})
-			}
-			res.json({'user': user, message: "User updated"})
-			});
-	});
-		
-
-
-	
-	
-
-		
+			return res.status(500).json({err: err.message})
+		}
+		res.json({'user': user, message: "User updated"})
+		});
+	});	
 	
 });
 
+router.put('/users/:user_name/remove', function(req, res) {
+	var user_name = req.params.user_name;
+	var companyName = req.body.companies;
+	User.findOne({name: user_name}, function(err, user){
+		if (err) return handleError(err);
+		User.findByIdAndUpdate(user._id, {$pull: {companies: companyName}}, {new: true}, function(err, user) {
+			if(err) {
+			return res.status(500).json({err: err.message})
+		}
+		res.json({'user': user, message: "User updated"})
+		});
+	});
+
+});
+
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
