@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 var Company = require('./models/company');
 
 var companies = [
@@ -15,6 +15,7 @@ companies.forEach(function (company, index) {
 		}
 	});
 });
+*/
 
 var User = require('./models/users');
 
