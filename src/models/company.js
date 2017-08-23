@@ -8,7 +8,7 @@ var companySchema = new mongoose.Schema({
 	tier: String,
 	salesperson: String,
 	state: String,
-	time_stamp: String, 
+	time_stamp: Number, 
 	contact: String, 
 	contact_title: String,
 	mobile_number: String,
