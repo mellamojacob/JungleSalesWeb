@@ -10,21 +10,21 @@ var mongoose = require('mongoose');
 var schedule = require('node-schedule');
 
 
-var j = schedule.scheduleJob('* * 0 * * *', function() {
-	var companies = Company.find();
-	for(var company in companies) {
-		company.time_stamp -= 1;
-		var time = company.time_stamp
-		if(time == 1000) {
-			company.time_stamp = 7;
-		}
-		if(time == 0) {
-			company.salesperson = "";
-		}
+// var j = schedule.scheduleJob('* * 0 * * *', function() {
+// 	var companies = Company.find();
+// 	for(var company in companies) {
+// 		company.time_stamp -= 1;
+// 		var time = company.time_stamp
+// 		if(time == 1000) {
+// 			company.time_stamp = 7;
+// 		}
+// 		if(time == 0) {
+// 			company.salesperson = "";
+// 		}
 
-	}
+// 	}
 
-})
+// })
 
 
 var router = express.Router();
