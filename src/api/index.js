@@ -67,8 +67,8 @@ app.listen(app.get('port'), function() {
 var router = express.Router();
 
 
-router.get('/', function(req, res) {
-	res.end("Hello world");
+app.get('/', function(req, res) {
+	res.end("Hello world\n");
 })
 
 router.get('/companies', function(req, res) {
