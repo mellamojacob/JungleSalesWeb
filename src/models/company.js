@@ -17,9 +17,9 @@ var companySchema = new mongoose.Schema({
 	city: String, 
 	state: String, 
 	zip: String, 
-	Ad_agency: String, 
-	Notes: String,
-	Priority: Number
+	ad_agency: String, 
+	notes: String,
+	priority: Number
 })
 
 var model = mongoose.model('Company', companySchema);
