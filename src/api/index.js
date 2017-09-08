@@ -50,6 +50,11 @@ var schedule = require('node-schedule');
 
 var router = express.Router();
 
+
+router.get('/', function(req, res) {
+	res.end("Hello world");
+})
+
 router.get('/companies', function(req, res) {
 	Company.find({}, function(err, companies) {
 		if(err) {
