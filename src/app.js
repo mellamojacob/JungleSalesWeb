@@ -33,6 +33,11 @@ require('./database');
 // });
 
 //var app = express();
+
+if (process.env.NODE_ENV !== 'production') {
+require('dotenv').config()
+}
+
 app.set( 'port', ( process.env.PORT || 5000 ));
 
 //app.listen(process.env.PORT || 5000);
