@@ -6,6 +6,8 @@ var router = require('./api');
 
 var app = express();
 
+
+
 //app.listen(process.env.PORT || 5000);
 
 require('./database');
@@ -31,13 +33,13 @@ require('./database');
 // });
 
 //var app = express();
-var port  = process.env.PORT || 5000;
+app.set( 'port', ( process.env.PORT || 5000 ));
 
 //app.listen(process.env.PORT || 5000);
 
 
 
 
-app.listen(port, function() {
+app.listen(app.get('port'), function() {
 	console.log("The server is running on port ", app.get('port'))
 });
