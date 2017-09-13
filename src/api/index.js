@@ -29,8 +29,13 @@ var Mongo = require('mongodb');
 var ObjectID = require('mongodb').ObjectID;
 var mongoose = require('mongoose');
 var schedule = require('node-schedule');
+var database = require('../database');
 
 var app = express();
+
+if (process.env.NODE_ENV !== 'production') {
+require('dotenv').config()
+}
 
 app.listen(process.env.PORT || 5000);
 
