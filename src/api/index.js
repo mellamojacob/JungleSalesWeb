@@ -71,7 +71,7 @@ app.get('/', function(req, res) {
 	res.end("Hello world\n");
 })
 
-router.get('/companies', function(req, res) {
+router.get('/companies/', function(req, res) {
 	Company.find({}, function(err, companies) {
 		if(err) {
 			return console.log(err);
