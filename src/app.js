@@ -31,12 +31,13 @@ require('./database');
 // });
 
 //var app = express();
+var port  = process.env.PORT || 5000;
 
-app.listen(process.env.PORT || 5000);
+//app.listen(process.env.PORT || 5000);
 
 
 
 
-app.listen(app.get('port'), function() {
+app.listen(port, function() {
 	console.log("The server is running on port ", app.get('port'))
 });
