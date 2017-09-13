@@ -11,7 +11,7 @@ app.listen(process.env.PORT || 5000);
 require('./database');
 require('./seed');
 
-app.use(parser.json());
+//app.use(parser.json());
 
 
 app.use('/api', router);
