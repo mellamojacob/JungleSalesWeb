@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 Promise.promisifyAll(mongoose);
 
 
-mongoose.connect('mongodb://localhost/jungle_sales', function(err) {
+mongoose.connect('mongodb://jvirgin:Turing95@ds011449.mlab.com:11449/heroku_w0m7vrgs', function(err) {
 	if(err) {
 		console.log('Failed to connect to Mongo Database')
 	} else {
