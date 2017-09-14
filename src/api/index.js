@@ -27,34 +27,10 @@ var ObjectID = require('mongodb').ObjectID;
 var mongoose = require('mongoose');
 var schedule = require('node-schedule');
 var database = require('../database');
-// var Company = require('../models/company');
+var Company = require('../models/company');
 var User = require('../models/users');
-//var Seed = require('../seed.js');
+var Seed = require('../seed.js');
 var app = express();
-
-var companySchema = new mongoose.Schema({
-	company_name: String,
-	phone_number: String,
-	tier: String,
-	salesperson: String,
-	state: String,
-	time_stamp: Number, 
-	contact: String, 
-	contact_title: String,
-	mobile_number: String,
-	email: String,
-	address: String, 
-	city: String, 
-	state: String, 
-	zip: String, 
-	ad_agency: String, 
-	notes: String,
-	priority: Number
-})
-
-
-
-var model = mongoose.model('companies', companySchema, 'companies');
 
 // if (process.env.NODE_ENV !== 'production') {
 // require('dotenv').config()
@@ -65,7 +41,6 @@ var model = mongoose.model('companies', companySchema, 'companies');
 app.listen(app.get('port'), function() {
 	console.log("The server is running on port ", app.get('port'))
 });
-console.log(model.find({}));
 
 //console.log(Company.find());
 
@@ -91,7 +66,7 @@ console.log(model.find({}));
 var router = express.Router();
 
 
-app.get('/', function(req, res) {
+router.get('/', function(req, res) {
 	// var db = mongoose.connection;
 	// db.on('error', console.error.bind(console, 'connection error'));
 	// db.once('open', function() {
