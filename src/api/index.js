@@ -64,7 +64,7 @@ var router = express.Router();
 
 
 app.get('/', function(req, res) {
-	var found_companies = Company.find({'Schema': 'paths'});
+	var found_companies = Company.find();
 	console.log(found_companies);
 	//res.end(Company.find());
 })
