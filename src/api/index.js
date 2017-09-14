@@ -31,7 +31,13 @@ var mongoose = require('mongoose');
 var schedule = require('node-schedule');
 var database = require('../database');
 
+// var db = mongoose.connection;
 var app = express();
+
+db.on('error', console.error.bind(console, 'connection error:'));  
+
+
+
 
 if (process.env.NODE_ENV !== 'production') {
 require('dotenv').config()
@@ -73,10 +79,13 @@ var router = express.Router();
 
 
 app.get('/', function(req, res) {
-	res.end("Hello world\n");
+	res.end(db.companies.find());
 })
 
 router.get('/companies/', function(req, res) {
+	// db.once('open', function(){
+
+	// })
 	Company.find({}, function(err, companies) {
 		if(err) {
 			return console.log(err);
