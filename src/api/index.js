@@ -66,7 +66,7 @@ var router = express.Router();
 app.get('/', function(req, res) {
 	var db = mongoose.connection;
 	db.on('error', console.error.bind(console, 'connection error'));
-	db.once('open', funcion() {
+	db.once('open', function() {
 		Company.find(function(err, companies) {
 			if(err) return console.error(err);
 			console.log(companies);
