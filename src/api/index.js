@@ -81,6 +81,7 @@ router.get('/companies/', function(req, res) {
 	// db.once('open', function(){
 
 	// })
+	console.log("We made it to companies");
 	Company.find({}, function(err, companies) {
 		if(err) {
 			return console.log(err);
