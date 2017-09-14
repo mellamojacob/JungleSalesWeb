@@ -11,7 +11,6 @@
 
 // // views is directory for all template files
 // //app.set('views', __dirname + '/views');
-// app.set('view engine', 'ejs');
 
 // app.get('/', function(request, response) {
 //   response.end('Hello World\n');
@@ -34,7 +33,7 @@ var database = require('../database');
 // var db = mongoose.connection;
 var app = express();
 
-db.on('error', console.error.bind(console, 'connection error:'));  
+//db.on('error', console.error.bind(console, 'connection error:'));  
 
 
 
