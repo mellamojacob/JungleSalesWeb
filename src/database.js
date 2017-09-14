@@ -13,8 +13,8 @@ mongoose.connect('mongodb://jvirgin:Turing95@ds011449.mlab.com:11449/heroku_w0m7
 	}
 });
 
-var db = mongoose.connection;
+// var db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-module.exports = db;
+// module.exports = db;
