@@ -78,7 +78,7 @@ var router = express.Router();
 
 
 app.get('/', function(req, res) {
-	res.end(db.companies.find());
+	res.end(database.companies.find());
 })
 
 router.get('/companies/', function(req, res) {
