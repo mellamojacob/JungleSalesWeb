@@ -5,13 +5,14 @@ var mongoose = require('mongoose');
 Promise.promisifyAll(mongoose);
 
 
-mongoose.connect('mongodb://jvirgin:Turing95@ds011449.mlab.com:11449/heroku_w0m7vrgs', function(err) {
+mongoose.connect('mongodb://jvirgin:Turing95@ds161471.mlab.com:61471/jungle_sales/collections/{companies}', function(err) {
 	if(err) {
 		console.log('Failed to connect to Mongo Database')
 	} else {
 		console.log('Connected to mongo successfully!')
 	}
 });
+
 
 // var db = mongoose.connection;
 
