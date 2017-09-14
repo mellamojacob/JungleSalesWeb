@@ -78,7 +78,9 @@ var router = express.Router();
 
 
 app.get('/', function(req, res) {
-	res.end(Company.find());
+	var found_companies = Company.find();
+	console.log(found_companies);
+	//res.end(Company.find());
 })
 
 router.get('/companies/', function(req, res) {
