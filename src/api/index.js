@@ -21,14 +21,14 @@
 // });
 
 var express = require('express');
-var Company = require('../models/company');
-var User = require('../models/users');
 var async = require('async');
 var Mongo = require('mongodb');
 var ObjectID = require('mongodb').ObjectID;
 var mongoose = require('mongoose');
 var schedule = require('node-schedule');
 var database = require('../database');
+var Company = require('../models/company');
+var User = require('../models/users');
 
 // var db = mongoose.connection;
 var app = express();
@@ -78,7 +78,7 @@ var router = express.Router();
 
 
 app.get('/', function(req, res) {
-	res.end(database.companies.find());
+	res.end(Company.find());
 })
 
 router.get('/companies/', function(req, res) {
