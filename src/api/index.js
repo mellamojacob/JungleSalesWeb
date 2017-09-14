@@ -85,6 +85,7 @@ router.get('/companies/', function(req, res) {
 		if(err) {
 			return console.log(err);
 		}
+		console.log(companies);
 		res.json({companies: companies})
 	})
 })
