@@ -22,6 +22,8 @@ var companySchema = new mongoose.Schema({
 	priority: Number
 })
 
+
+
 var model = mongoose.model('Company', companySchema);
 
 module.exports = model;

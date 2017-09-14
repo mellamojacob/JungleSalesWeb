@@ -29,28 +29,14 @@ var schedule = require('node-schedule');
 var database = require('../database');
 var Company = require('../models/company');
 var User = require('../models/users');
-
-// var db = mongoose.connection;
+var Seed = require('../seed.js');
 var app = express();
-
-//db.on('error', console.error.bind(console, 'connection error:'));  
-
-
-
 
 if (process.env.NODE_ENV !== 'production') {
 require('dotenv').config()
 }
 
 app.listen(process.env.PORT || 5000);
-
-// require('./database');
-// require('./seed');
-
-//app.use(parser.json());
-
-
-//app.use('/api', router);
 
 app.listen(app.get('port'), function() {
 	console.log("The server is running on port ", app.get('port'))
