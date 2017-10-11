@@ -1,21 +1,23 @@
 'use strict';
 
-var Promise = require('bluebird');
-var mongoose = require('mongoose');
-Promise.promisifyAll(mongoose);
+// var Promise = require('bluebird');
+// var mongoose = require('mongoose');
+// Promise.promisifyAll(mongoose);
+var MongoClient = require('mongodb').MongoClient;
+var uri = 'mongodb://jvirgin:Turing95!@cluster0-shard-00-00-3hvov.mongodb.net:27017,cluster0-shard-00-01-3hvov.mongodb.net:27017,cluster0-shard-00-02-3hvov.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'
 
-
-mongoose.connect('mongodb://jvirgin:Turing95@ds161471.mlab.com:61471/jungle_sales', function(err) {
+MongoClient.connect(uri, function(err, db){
 	if(err) {
-		console.log('Failed to connect to Mongo Database')
+		console.log('Error' + err);
 	} else {
-		console.log('Connected to mongo successfully!')
+		console.log('Connected to mongo successfully!');
+		//db.close();\
+		module.exports = db;
 	}
 });
 
 
- var db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 
 // module.exports = db;

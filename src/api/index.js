@@ -23,13 +23,29 @@
 var express = require('express');
 var async = require('async');
 var Mongo = require('mongodb');
+var MongoClient = require('mongodb').MongoClient;
+var stitch = require('mongodb-stitch');
+var client = new stitch.StitchClient('jungle_sales-jppgh');
+var db = client.service('mongodb', 'mongodb-atlas').db('junglesales');
+
+client.login().then(() => 
+	db.collection('companies').updateOne({name: "Jacob"}, {$set:{number:42}}, {upsert: true})
+).then(() => 
+	db.collection('companies').find({name: "Jacob"})
+).then(docs => {
+	console.log("found docs", docs);
+	console.log("[MongoDB Stitch] connected to Stitch");
+}).catch(err => {
+	console.log(err)
+});
+
 var ObjectID = require('mongodb').ObjectID;
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 var schedule = require('node-schedule');
 var database = require('../database');
-var Company = require('../models/company');
-var User = require('../models/users');
-var Seed = require('../seed.js');
+//var Company = require('../models/company');
+//var User = require('../models/users');
+//ar Seed = require('../seed.js');
 var app = express();
 
 // if (process.env.NODE_ENV !== 'production') {
@@ -42,9 +58,21 @@ app.listen(app.get('port'), function() {
 	console.log("The server is running on port ", app.get('port'))
 });
 
-//console.log(Company.find());
 
 
+//console.log(database);
+
+// var MongoClient = require('mongodb').MongoClient
+
+// var URL = 'mongodb://jvirgin:Turing95!@cluster0-shard-00-00-3hvov.mongodb.net:27017,cluster0-shard-00-01-3hvov.mongodb.net:27017,cluster0-shard-00-02-3hvov.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'
+
+// MongoClient.connect(URL, function(err, db) {
+//   if (err) return
+
+//   var collection = db.collection('companies')
+//   var response = collection.find();
+//   console.log(response);
+// })
 
 // var j = schedule.scheduleJob('* * 0 * * *', function() {
 // 	var companies = Company.find();
@@ -62,6 +90,8 @@ app.listen(app.get('port'), function() {
 
 // })
 
+
+/*
 
 var router = express.Router();
 
@@ -215,7 +245,7 @@ module.exports = router;
 
 
 
-
+*/
 
 
 
